@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>イデオロギー分析</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <h1>イデオロギー分析テスト</h1>
