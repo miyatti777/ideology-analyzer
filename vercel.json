@@ -6,8 +6,7 @@
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
-                "runtime": "python3.9",
-                "handler": "ideology_analyzer.application"
+                "runtime": "python3.9"
             }
         }
     ],
@@ -18,7 +17,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/ideology_analyzer.py"
+            "dest": "ideology_analyzer.py"
         }
     ]
 } 

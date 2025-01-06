@@ -112,4 +112,4 @@ def server_static(filename):
     return static_file(filename, root=os.path.join(current_dir, 'static'))
 
 # Vercelのためのエントリーポイント
-app = application = app.default_app()
+application = app
