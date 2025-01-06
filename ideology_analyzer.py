@@ -6,6 +6,7 @@ import os
 import bottle
 from bottle import Bottle, template, request, static_file
 
+# Vercel用のアプリケーション設定
 app = Bottle()
 
 # テンプレートパスの設定
