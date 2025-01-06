@@ -7,7 +7,7 @@ import bottle
 from bottle import Bottle, template, request, static_file
 
 # Vercel用のアプリケーション設定
-app = Bottle()
+app = application = Bottle()
 
 # テンプレートパスの設定
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -112,4 +112,4 @@ def server_static(filename):
     return static_file(filename, root=os.path.join(current_dir, 'static'))
 
 # Vercelのためのエントリーポイント
-application = app = app.default_app()
+app = application = app.default_app()
