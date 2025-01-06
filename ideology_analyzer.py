@@ -7,6 +7,10 @@ from bottle import Bottle, template, request, static_file
 
 app = Bottle()
 
+# テンプレートパスの設定
+TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+bottle.TEMPLATE_PATH.insert(0, TEMPLATE_PATH)
+
 # CSVファイルの読み込み
 current_dir = os.path.dirname(os.path.abspath(__file__))
 questions_df = pd.read_csv(os.path.join(current_dir, 'questions.csv'))
@@ -107,4 +111,4 @@ def server_static(filename):
     return static_file(filename, root=os.path.join(current_dir, 'static'))
 
 # Vercelのためのエントリーポイント
-app = app.default_app()
+application = app
