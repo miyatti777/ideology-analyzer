@@ -3,16 +3,16 @@ from collections import defaultdict
 from typing import List, Tuple, Dict
 import random
 import os
+import bottle
 from bottle import Bottle, template, request, static_file
 
 app = Bottle()
 
 # テンプレートパスの設定
-TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)))
-bottle.TEMPLATE_PATH.insert(0, TEMPLATE_PATH)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+bottle.TEMPLATE_PATH = [current_dir]
 
 # CSVファイルの読み込み
-current_dir = os.path.dirname(os.path.abspath(__file__))
 questions_df = pd.read_csv(os.path.join(current_dir, 'questions.csv'))
 ideologies_df = pd.read_csv(os.path.join(current_dir, 'ideologies.csv'))
 axes_df = pd.read_csv(os.path.join(current_dir, 'axes.csv'))
@@ -111,4 +111,4 @@ def server_static(filename):
     return static_file(filename, root=os.path.join(current_dir, 'static'))
 
 # Vercelのためのエントリーポイント
-application = app
+app = app.default_app()
